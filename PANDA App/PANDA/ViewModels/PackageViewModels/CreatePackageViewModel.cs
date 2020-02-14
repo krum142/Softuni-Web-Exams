@@ -4,7 +4,7 @@
     {
         public string Description { get; set; }
 
-        public double Weight { get; set; }
+        public string Weight { get; set; }
 
         public string ShippingAddress { get; set; }
 

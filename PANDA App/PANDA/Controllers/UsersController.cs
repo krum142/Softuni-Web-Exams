@@ -35,7 +35,7 @@ namespace PANDA.Controllers
 
             var userId = usersService.GetUserId(username, password);
 
-            if (userId == null)
+            if (string.IsNullOrWhiteSpace(userId))
             {
                 return Redirect("/Users/Login");
             }

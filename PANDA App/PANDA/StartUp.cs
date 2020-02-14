@@ -17,8 +17,8 @@ namespace PANDA
 
            // db.Database.Migrate();
            //db.Database.EnsureDeleted();
-            //db.Database.EnsureCreated();
-            db.Database.Migrate();
+            db.Database.EnsureCreated();
+            //db.Database.Migrate();
         }
 
         public void ConfigureServices(IServiceCollection serviceCollection)

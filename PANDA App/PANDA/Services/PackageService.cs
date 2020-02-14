@@ -31,7 +31,7 @@ namespace PANDA.Services
                 RecipientId = usersService.GetUserId(packageInfo.RecipientName),
                 //Recipient = usersService.GetUser(packageInfo.RecipientName),
                 Status = Status.Pending,
-                Weight = packageInfo.Weight,
+                Weight = double.Parse(packageInfo.Weight),
                 ShippingAddress = packageInfo.ShippingAddress,
             };
 

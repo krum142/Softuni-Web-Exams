@@ -73,16 +73,27 @@ namespace PANDA.Controllers
                 return this.Redirect("/");
             }
 
+            if (!this.IsUserLoggedIn())
+            {
+                return this.Redirect("/");
+            }
+
             if (input.Description.Length < 5 || input.Description.Length > 20)
             {
                return this.Redirect("/Packages/Create");
             }
 
-            if (input.Weight < 0)
+            if (string.IsNullOrWhiteSpace(input.Weight))
             {
                 return this.Redirect("/Packages/Create");
             }
 
+            if (string.IsNullOrWhiteSpace(input.RecipientName))
+            {
+                return this.Redirect("/Packages/Create");
+            }
+
+            
             packageService.CreatePackage(input);
 
             return Redirect("/Packages/Pending");
