@@ -28,6 +28,10 @@ namespace PANDA.Models
         public Status Status { get; set; }
         //    •	Estimated Delivery Date - a DateTime object
         public DateTime EstimatedDeliveryDate { get; set; }
+
+        public string ReceiptId { get; set; }
+
+        public Receipt Receipt { get; set; }
         //    •	RecipientId - GUID foreign key(required)
         [Required]
         public string RecipientId { get; set; }

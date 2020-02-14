@@ -32,7 +32,7 @@ namespace PANDA.Services
                 //Recipient = usersService.GetUser(packageInfo.RecipientName),
                 Status = Status.Pending,
                 Weight = double.Parse(packageInfo.Weight),
-                ShippingAddress = packageInfo.ShippingAddress,
+                ShippingAddress = packageInfo.ShippingAddress
             };
 
             db.Package.Add(package);
@@ -68,7 +68,9 @@ namespace PANDA.Services
 
             package.Status = Status.Delivered;
 
-            recipientService.CreateRecipient(package.Weight, packageId, package.RecipientId);
+            string recipientId = recipientService.CreateRecipient(package.Weight, packageId, package.RecipientId);
+
+            package.ReceiptId = recipientId;
 
             db.SaveChanges();
         }

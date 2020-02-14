@@ -16,18 +16,20 @@ namespace PANDA.Services
             this.db = db;
         }
 
-        public void CreateRecipient(double weight,string packageId,string userId)
+        public string CreateRecipient(double weight,string packageId,string userId)
         {
             var recipient = new Receipt()
             {
                 Fee = (decimal)(weight * 2.64),
                 IssuedOn = DateTime.UtcNow,
                 RecipientId = userId,
-                PackageId = packageId,
+                PackageId = packageId
             };
 
             db.Receipt.Add(recipient);
             db.SaveChanges();
+
+            return recipient.Id;
         }
 
         public ReceiptsViewModel GetAllReceiptsForUser(string userId)

@@ -14,10 +14,9 @@ namespace PANDA
         {
             using var db = new PandaContext();
 
-
-           // db.Database.Migrate();
-           //db.Database.EnsureDeleted();
+            db.Database.EnsureDeleted();
             db.Database.EnsureCreated();
+            //  db.Database.EnsureCreated();
             //db.Database.Migrate();
         }
 
